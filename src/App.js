@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listenToDroneSocket } from "./app/slices/dronesSocket";
-import socket from "./utils/socket";
-import { getDrones } from "./app/slices/dronesSlice";
+import Main from "./components/Main";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,8 +14,9 @@ function App() {
   console.log('--------------', droneData?.data.features)
 
   return (
-    <div>
-    </div>
+    <>
+      <Main />
+    </>
   );
 }
 
