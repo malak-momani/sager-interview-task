@@ -1,1 +1,0 @@
-# sager-interview-task
