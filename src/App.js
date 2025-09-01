@@ -11,8 +11,6 @@ function App() {
     dispatch(listenToDroneSocket())
   }, [dispatch]);
 
-  console.log('--------------', droneData?.data.features)
-
   return (
     <>
       <Main />

@@ -1,8 +1,13 @@
 import Header from "./Header"
+import MainMap from "./Map";
 
 const Main = () => {
     return (
-        <Header />
+        <>
+            <Header />
+            <MainMap />
+        </>
+
     )
 }
 

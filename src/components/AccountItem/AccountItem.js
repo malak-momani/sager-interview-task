@@ -40,11 +40,11 @@ export default function AccountCustomSlotProps() {
                 color: "#F9F9F9",
             }}>
                 <Typography>Hello,
-                    <Typography sx={{
+                    <span sx={{
                         fontStyle: "bold"
                     }}>
                         {session.user.name}
-                    </Typography>
+                    </span>
                 </Typography>
                 <Typography>
                     {session.user.role}
