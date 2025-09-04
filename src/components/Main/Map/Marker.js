@@ -13,8 +13,6 @@ const Marker = ({ map, feature }) => {
 
         const img = document.createElement('img');
         img.src = MarkerImg;
-        // img.style.width = '30px';
-        // img.style.height = '30px';
 
         el.appendChild(img);
         markerRef.current = new mapboxgl.Marker({

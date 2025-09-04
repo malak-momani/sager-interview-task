@@ -69,6 +69,7 @@ function MainMap() {
   return (
     <>
       <div id='map-container' ref={mapContainerRef} />
+
       {mapRef.current && droneData && droneData?.data?.features?.map((feature) => {
         return (<Marker
           key={feature.id}
