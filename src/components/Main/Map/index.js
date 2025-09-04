@@ -19,7 +19,7 @@ function MainMap() {
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
       center: [116.14815, -1.99628],
-      style:'mapbox://styles/mapbox/navigation-night-v1',
+      style: 'mapbox://styles/mapbox/dark-v11',
       // minZoom: 5.5,
       zoom: 5.5
     });
@@ -30,7 +30,42 @@ function MainMap() {
   }, []);
   console.log({ droneData })
 
+  useEffect(() => {
+    if (!mapRef.current) return;
 
+    mapRef.current.on('load', () => {
+      const routeGeometry = {
+        type: 'LineString',
+        coordinates: [
+          [-70.9, 42.35], // Example coordinates
+          [-70.95, 42.4],
+          [-71.0, 42.45]
+        ]
+      };
+
+      // mapRef.current.addSource('route', {
+      //   type: 'geojson',
+      //   data: {
+      //     type: 'Feature',
+      //     geometry: routeGeometry
+      //   }
+      // });
+
+      mapRef.current.addLayer({
+        id: 'route',
+        type: 'line',
+        source: 'route',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#dd6666ff',
+          'line-width': 6
+        }
+      });
+    });
+  }, [mapRef.current]); // Re-run effect if map instance changes (unlikely in this setup)
   return (
     <>
       <div id='map-container' ref={mapContainerRef} />
